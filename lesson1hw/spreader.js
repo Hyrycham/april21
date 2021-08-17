@@ -1,14 +1,23 @@
-const spreader = (data)=>{
-  if (data.includes('gender:"male"'))  {
-      console.log('ERROR: user male!!!!')
+const fs = require('fs');
 
+
+const spreader = (data,path)=>{
+  if (data.includes('gender:"male"'))  {
+    fs.rename(`./in/${path}`,`./1800/${path}`,(err)=>{
+    if (err) {
+        console.log(err);
+    }
+});
   }
     else if(data.includes('gender:"female"'))  {
-
-      console.log('ERROR: user female!!!!')
-  }
+          fs.rename(`./in/${path}`,`./2000/${path}`,(err)=>{
+          if (err) {
+              console.log(err);
+          }
+      });
+ }
     else {
-        console.log('ERROR: user have not gender!!!!')
+        console.log('ERROR: user has no gender!!!!');
   }
 };
 

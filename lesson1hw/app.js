@@ -1,6 +1,9 @@
 const fs = require('fs');
-// const users = require('./users') ;
 const spreader = require('./spreader') ;
+
+//
+// const users = require('./users') ;
+//
 // for( const user of  users)  {
 //     fs.writeFile(`./in/${user.name}.txt`,`{name:"${user.name}",gender:"${user.gender}"}`,
 //    (err)=>{
@@ -10,14 +13,51 @@ const spreader = require('./spreader') ;
 //     });
 // };
 
-fs.readFile('./in/Sasha.txt',(err,data )=>{
-    if (err){
+fs.readdir('./in/',(err,files )=> {
+    if (err) {
         console.log(err);
     }
-    else{
-
-        let userData = data.toString();
-        console.log(userData);
-        spreader(userData);
+    else  {
+        files.forEach(file => {
+            fs.readFile(`./in/${file}`, (err, data) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    spreader(data.toString(),file);
+                }
+            })
+        })
     }
-})
+});
+
+
+
+
+
+
+
+
+
+
+        //   for (const fileName of files ){
+        //     fs.readFile(`./in/${fileName}`,(err,data )=>{
+        //         if (err){
+        //             console.log(err);
+        //         }
+        //         else{
+        //              spreader(data.toString());
+        //         }
+        //     });
+        // }
+
+
+
+
+//
+//     }
+// });
+
+
+
+
