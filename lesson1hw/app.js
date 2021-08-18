@@ -12,8 +12,10 @@ fs.mkdir('./in', {recursive: true}, err => {
 
 ////////////////////////
 users.forEach(user => {
- fs.writeFile(`./in/${user.name}.txt`,`{ "name":" ${user.name}" , "gender":"${user.gender}", "age":"${user.age}"}`,
-                (err)=>{
+ fs.writeFile(`./in/${user.name}.txt`,
+     // `{ "name":" ${user.name}" , "gender":"${user.gender}", "age":"${user.age}"}`,
+     JSON.stringify(user),
+      (err)=>{
                     if (err){
                         console.log(err);
                     }
@@ -41,7 +43,7 @@ fs.readdir('./in/',(err,files )=> {
                 }
                 else {
                      spreader(JSON.parse(data.toString()),file);
-                     }
+                      }
             })
         })
           }
