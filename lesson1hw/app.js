@@ -1,7 +1,6 @@
 const fs = require('fs');
 const spreader = require('./spreader') ;
 
-//
 // const users = require('./users') ;
 //
 // for( const user of  users)  {
@@ -30,34 +29,3 @@ fs.readdir('./in/',(err,files )=> {
         })
     }
 });
-
-
-
-
-
-
-
-
-
-
-        //   for (const fileName of files ){
-        //     fs.readFile(`./in/${fileName}`,(err,data )=>{
-        //         if (err){
-        //             console.log(err);
-        //         }
-        //         else{
-        //              spreader(data.toString());
-        //         }
-        //     });
-        // }
-
-
-
-
-//
-//     }
-// });
-
-
-
-
