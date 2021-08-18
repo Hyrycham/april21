@@ -4,7 +4,7 @@ const dirsList = require('./dirsList')
 const users = require('./users') ;
 
 /////////////////////////
-fs.mkdir('./in', {recursive: true}, err => {
+  fs.mkdir('./in', {recursive: true}, err => {
     if (err) {
         console.log(err);
     }
@@ -23,8 +23,8 @@ users.forEach(user => {
         }
     );
 //////////////////////////
-dirsList.forEach(dirName =>{
-    fs.mkdir(dirName, {recursive: true}, err => {
+dirsList.forEach(dirName =>  {
+   fs.mkdir(dirName, {recursive: true}, err => {
         if (err) {
             console.log(err);
         }
